@@ -12,8 +12,11 @@ This is a boilerplate for building a RESTful API using TypeScript. It provides a
    ```
 
 4. Rename `.env.example` to `.env` and configure the environment variables.
-
-5. Start the application using the following command:
+5. Compile the application using the following command:
+   ```
+   npm run build
+   ```
+6. Start the application using the following command:
 
    ```
    npm start
