@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-export const DEV_MODE: boolean = true;
+export const DEV_MODE: boolean = false;
 export const SERVER_PORT = process.env.SERVER_PORT || 3000;
 export const CAPTCHA_SECRET_KEY = process.env.CAPTCHA_SECRET_KEY;
 export const SMTP_HOST = process.env.SMTP_HOST;
