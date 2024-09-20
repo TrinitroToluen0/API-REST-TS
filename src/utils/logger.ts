@@ -1,6 +1,7 @@
 import c from "./colors";
 import { DEV_MODE } from "../config";
 import fs from "fs";
+import path from "path";
 
 class Logger {
     private timestamp: string;
@@ -17,6 +18,11 @@ class Logger {
     private writeToLogFile(message: string, level: string): void {
         const formattedMessage = `[${level}] ${this.timestamp} ${message}\n`;
         const logPath = DEV_MODE === true ? "./logs/dev.log" : "./logs/prod.log";
+        const logDir = path.dirname(logPath);
+
+        if (!fs.existsSync(logDir)) {
+            fs.mkdirSync(logDir, { recursive: true });
+        }
 
         fs.appendFile(logPath, formattedMessage, (err) => {
             if (err) {
