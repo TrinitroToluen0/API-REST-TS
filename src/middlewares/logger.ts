@@ -8,7 +8,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
         const duration = Date.now() - start;
         let message = `${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms `;
         if (!DEV_MODE) {
-            message += req.socket.remoteAddress || req.headers["x-forwarded-for"];
+            message += req.ip || req.headers["x-forwarded-for"];
         }
         logger.http(message);
     });
